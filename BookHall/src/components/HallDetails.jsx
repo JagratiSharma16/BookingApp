@@ -1,6 +1,8 @@
 import React from 'react'
-import { assets } from '../assets/assets_frontend/assets';
-import {AppContext} from '../context/AppContext';
+// import { assets } from '../assets/assets_frontend/assets';
+import { AppContext } from '../context/AppContext.jsx';
+import { useContext } from 'react';
+
 
 const HallDetails = () => {
     const {doctors} = useContext(AppContext)
@@ -16,11 +18,11 @@ const HallDetails = () => {
                     >
                         <img
                             src={seminar.image}
-                            // alt={seminar.title}
+                            alt={seminar.speciality}
                             className="w-full h-48 object-cover"
                         />
                         <div className="p-4">
-                            {/* <h3 className="text-xl font-semibold mb-2">{seminar.title}</h3> */}
+                            <h3 className="text-xl font-semibold mb-2">{seminar.speciality}</h3>
                             {/* <p className="text-sm text-gray-600">{seminar.date}</p> */}
                             {/* <p className="text-sm text-gray-600">{seminar.location}</p> */}
                             <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition">
