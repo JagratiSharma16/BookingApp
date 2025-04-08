@@ -39,6 +39,7 @@ import Pediatricians from './Pediatricians.svg'
 import darkmode from './darkmode.png'
 import lightmode from './lightmode.png'
 import Booklogo from './Booklogo.png'
+import hallpic from './hallpic.jpg'
 
 
 export const assets = {
@@ -61,7 +62,8 @@ export const assets = {
     razorpay_logo,
     darkmode,
     lightmode,
-    Booklogo
+    Booklogo,
+    hallpic
 }
 
 export const specialityData = [
