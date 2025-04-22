@@ -2,9 +2,9 @@ import React from 'react';
 
 function About() {
   return (
-    <div className="bg-gradient-to-br from-blue-400 via-white to-blue-100 min-h-screen">
+    <div className="bg-gradient-to-br from-orange-200 via-white to-orange-100 min-h-screen">
       <div className="p-6 sm:p-8 xl:p-12 max-w-6xl xl:max-w-7xl 2xl:max-w-screen-xl mx-auto">
-        <h1 className="text-4xl xl:text-5xl font-bold mb-8 text-left bg-gradient-to-r from-blue-800 via-blue-600 to-blue-400 text-transparent bg-clip-text">
+        <h1 className="text-4xl xl:text-5xl font-bold mb-8 text-left bg-gradient-to-r from-orange-800 via-orange-600 to-orange-400 text-transparent bg-clip-text">
           About Us
         </h1>
 
@@ -12,16 +12,16 @@ function About() {
           {/* TEXT SECTION */}
           <div className="md:w-1/2">
             <p className="text-lg xl:text-xl mb-6 text-gray-700 text-left leading-relaxed">
-              Welcome to <span className="font-semibold text-blue-600 hover:text-blue-800 transition-colors duration-300 cursor-pointer">BoookANEvvent</span> – your one-stop platform for seamless seminar and auditorium hall booking!
+              Welcome to <span className="font-semibold text-orange-600 hover:text-orange-800 transition-colors duration-300 cursor-pointer">BoookANEvvent</span> – your one-stop platform for seamless seminar and auditorium hall booking!
             </p>
 
             <div className="bg-white p-6 xl:p-8 rounded-3xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
-              <h2 className="text-2xl xl:text-3xl font-semibold mb-3 text-blue-700">Our Mission</h2>
+              <h2 className="text-2xl xl:text-3xl font-semibold mb-3 text-orange-700">Our Mission</h2>
               <p className="text-gray-700 mb-4 text-base xl:text-lg leading-relaxed">
                 At BoookAnEvvent, we aim to simplify the process of reserving spaces for academic, corporate, and cultural events. Whether you need a seminar room for a workshop or an auditorium for a large event, our platform provides a quick, transparent, and hassle-free booking experience.
               </p>
 
-              <h2 className="text-2xl xl:text-3xl font-semibold mb-3 text-blue-700">What We Offer</h2>
+              <h2 className="text-2xl xl:text-3xl font-semibold mb-3 text-orange-700">What We Offer</h2>
               <ul className="list-disc list-inside text-gray-700 space-y-2 text-base xl:text-lg">
                 {[
                   'Real-time availability of halls',
@@ -31,14 +31,14 @@ function About() {
                 ].map((item, idx) => (
                   <li
                     key={idx}
-                    className="hover:text-blue-600 transition-colors duration-300 cursor-default"
+                    className="hover:text-orange-600 transition-colors duration-300 cursor-default"
                   >
                     {item}
                   </li>
                 ))}
               </ul>
 
-              <h2 className="text-2xl xl:text-3xl font-semibold mt-6 mb-3 text-blue-700">Why Choose Us?</h2>
+              <h2 className="text-2xl xl:text-3xl font-semibold mt-6 mb-3 text-orange-700">Why Choose Us?</h2>
               <p className="text-gray-700 text-base xl:text-lg leading-relaxed">
                 We believe in efficiency, accessibility, and trust. Our system is built to ensure that your event planning is smoother, smarter, and more successful.
               </p>
@@ -48,7 +48,7 @@ function About() {
           {/* IMAGE SECTION */}
           <div className="md:w-1/2 flex justify-center">
             <img
-              src="https://images.pexels.com/photos/2566121/pexels-photo-2566121.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              src="https://lh3.googleusercontent.com/geougc/AF1QipP0RnQoJE-KlxvHfGMZwjpcqW-DO5Qr53KfBLae=h400-no"
               alt="Event Hall"
               className="w-64 sm:w-72 md:w-80 lg:w-[22rem] xl:w-[26rem] 2xl:w-[30rem] h-auto rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-300 ease-in-out"
             />
@@ -57,7 +57,7 @@ function About() {
 
         {/* CONTACT SECTION */}
         <div className="mt-16 bg-gradient-to-br from-gray-100 to-white p-6 xl:p-10 rounded-3xl shadow-md hover:shadow-xl transition-shadow duration-300">
-          <h2 className="text-2xl xl:text-3xl font-semibold text-blue-800 mb-4">Contact Us</h2>
+          <h2 className="text-2xl xl:text-3xl font-semibold text-orange-800 mb-4">Contact Us</h2>
           <div className="text-gray-700 text-base xl:text-lg leading-relaxed space-y-2">
             <p>
               <span className="font-medium">Website:</span>{' '}
@@ -65,7 +65,7 @@ function About() {
                 href="https://abes.ac.in/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-300"
+                className="text-orange-600 hover:text-orange-800 hover:underline transition-colors duration-300"
               >
                 https://abes.ac.in/
               </a>
@@ -77,7 +77,7 @@ function About() {
               <span className="font-medium">Phone:</span>{' '}
               <a
                 href="tel:01207135112"
-                className="text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-300"
+                className="text-orange-600 hover:text-orange-800 hover:underline transition-colors duration-300"
               >
                 0120-7135112
               </a>
