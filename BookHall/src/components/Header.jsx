@@ -4,7 +4,7 @@ import { assets } from '../assets/assets_frontend/assets'
 const Header = () => {
   return (
     <>
-    <header className="relative h-200 2xl:mx-30 xl:mx-20 mx-10 overflow-hidden">
+    <header className="relative h-150 2xl:mx-30 xl:mx-20 mx-10 overflow-hidden">
       <img
         src={assets.hallpic}
         alt="Seminar Hall"

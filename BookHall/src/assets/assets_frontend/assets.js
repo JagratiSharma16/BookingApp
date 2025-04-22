@@ -22,7 +22,7 @@ import doc4 from './doc4.png'
 import doc5 from './doc5.png'
 import doc6 from './doc6.png'
 import hallpic from './hallpic.webp'
-
+import logonew from './logonew.png'
 import Dermatologist from './Dermatologist.svg'
 import Gastroenterologist from './Gastroenterologist.svg'
 import General_physician from './General_physician.svg'
@@ -51,7 +51,8 @@ export const assets = {
     upload_icon,
     stripe_logo,
     razorpay_logo,
-    hallpic
+    hallpic,
+    logonew
 }
 
 export const specialityData = [
@@ -154,6 +155,34 @@ export const doctors = [
     },
     {
         _id: 'doc6',
+        name: 'Dr. Andrew Williams',
+        image: doc6,
+        speciality: 'Neurologist',
+        degree: 'MBBS',
+        experience: '4 Years',
+        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
+        fees: 50,
+        address: {
+            line1: '57th Cross, Richmond',
+            line2: 'Circle, Ring Road, London'
+        }
+    },
+    {
+        _id: 'doc7',
+        name: 'Dr. Andrew Williams',
+        image: doc6,
+        speciality: 'Neurologist',
+        degree: 'MBBS',
+        experience: '4 Years',
+        about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
+        fees: 50,
+        address: {
+            line1: '57th Cross, Richmond',
+            line2: 'Circle, Ring Road, London'
+        }
+    },
+    {
+        _id: 'doc7',
         name: 'Dr. Andrew Williams',
         image: doc6,
         speciality: 'Neurologist',
