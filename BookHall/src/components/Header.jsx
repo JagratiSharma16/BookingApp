@@ -6,7 +6,7 @@ const Header = () => {
     <>
     <header className="relative h-150 2xl:mx-30 xl:mx-20 mx-10 overflow-hidden">
       <img
-        src={assets.hallpic}
+        src={assets.homeimg}
         alt="Seminar Hall"
         className="absolute inset-1 w-full h-full object-cover brightness-50 bg-cover"
       />
