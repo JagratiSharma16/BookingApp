@@ -25,7 +25,7 @@ const HallDetails = () => {
                             <h3 className="text-xl font-semibold mb-2">{seminar.speciality}</h3>
                             {/* <p className="text-sm text-gray-600">{seminar.date}</p> */}
                             {/* <p className="text-sm text-gray-600">{seminar.location}</p> */}
-                            <button className="mt-4 px-4 py-2 bg-amber-600 text-white rounded-xl hover:bg-blue-700 transition">
+                            <button className="mt-4 px-4 py-2 bg-amber-700 text-white rounded-xl hover:bg-amber-600 transition">
                                 Register
                             </button>
                         </div>
