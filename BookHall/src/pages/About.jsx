@@ -3,7 +3,7 @@ import { assets } from '../assets/assets_frontend/assets';
 
 function About() {
   return (
-    <div className="bg-gradient-to-br from-orange-200 via-white to-orange-100 min-h-screen">
+    <div className="bg-gradient-to-r from-orange-200 via-orange-50 to-orange-200 min-h-screen">
       <div className="p-6 sm:p-8 xl:p-12 max-w-6xl xl:max-w-7xl 2xl:max-w-screen-xl mx-auto">
         <h1 className="text-4xl xl:text-5xl font-bold mb-8 text-left bg-gradient-to-r from-orange-800 via-orange-600 to-orange-400 text-transparent bg-clip-text">
           About Us
