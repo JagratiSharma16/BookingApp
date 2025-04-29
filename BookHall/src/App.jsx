@@ -12,7 +12,8 @@
 
     return (
       <>
-        <BrowserRouter>
+      <div className='min-h-screen bg-gradient-to-r from-orange-200 via-orange-50 to-orange-200'>
+        <BrowserRouter >
         <Navbar/>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -21,6 +22,7 @@
           <Route path="/admin-dashboard" element={<AdminDashboard/>} />
         </Routes>
         </BrowserRouter>
+        </div>
       </>
     )
   }

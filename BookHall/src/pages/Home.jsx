@@ -1,12 +1,14 @@
 import React from 'react';
 import Header from '../components/Header';
 import HallDetails from '../components/HallDetails';
+import SeminarCalander from '../components/SeminarCalander'
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-orange-200 via-orange-50 to-orange-200">
+    <div >
       <Header />
       <HallDetails />
+      <SeminarCalander/>
     </div>
   );
 };

@@ -7,8 +7,8 @@ const Navbar = () => {
     return (
         <div>
             <div>
-                <div className="flex items-center justify-between text-5m py-3 mb-5 border-b-3 border-b-gray-400 2xl:ml-30 2xl:mr-30 xl:ml-20 xl:mr-20 mx-10 shadow-lg">
-                    <img onClick={() => navigate("/")} className="w-40 rounded-full cursor-pointer" src={assets.logonew} alt="image" />
+                <div className="flex items-center justify-between text-5m py-3 mb-5 border-b-3 border-red-800 2xl:ml-30 2xl:mr-30 xl:ml-20 xl:mr-20 mx-10 shadow-xl bg-gradient-to-r from-orange-50 via-orange-200 to-orange-50">
+                    <img onClick={() => navigate("/")} className="w-50 rounded-full cursor-pointer" src={assets.logonew} alt="image" />
                     <ul className="hidden md:flex items-start gap-10 font-bold xl:text-2xl 2xl:text-4xl">
                         <NavLink to="/">
                             <li className="py-1">Home</li>
