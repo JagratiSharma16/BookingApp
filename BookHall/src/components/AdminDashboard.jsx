@@ -22,7 +22,7 @@ const AdminDashboard = () => {
     const hallData = {
       ...form,
       id: editId || Date.now(),
-      photoUrl: defaultHallImage,
+      photoUrl: defaultHallImage, // Use default image
     };
 
     if (editId !== null) {
@@ -96,11 +96,13 @@ const AdminDashboard = () => {
             key={hall.id}
             className="bg-white rounded-3xl shadow-xl p-5 hover:shadow-2xl transition duration-300"
           >
-            <img
-              src={hall.photoUrl}
-              alt={hall.name}
-              className="w-full h-48 object-cover rounded-xl mb-4"
-            />
+            <div className="overflow-hidden rounded-xl mb-4">
+              <img
+                src={hall.photoUrl}
+                alt={hall.name}
+                className="w-full h-48 object-cover transform transition-transform duration-300 hover:scale-105"
+              />
+            </div>
             <h3 className="text-xl font-bold text-gray-800 mb-1">{hall.name}</h3>
             <p className="text-gray-600 mb-4">Accommodation: {hall.accommodation}</p>
             <div className="flex gap-4">
