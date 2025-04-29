@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import defaultHallImage from "../assets/assets_frontend/audi.png";
 
 const AdminDashboard = () => {
-  const [halls, setHalls] = useState([]);
+  const [halls, setHalls] = useState(() => {
+    const saved = localStorage.getItem("halls");
+    return saved ? JSON.parse(saved) : [];
+  });
   const [form, setForm] = useState({ name: "", accommodation: "" });
   const [editId, setEditId] = useState(null);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("halls", JSON.stringify(halls));
+  }, [halls]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -46,12 +53,12 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-tr from-orange-300 via-orange-50 to-orange-300 p-9">
-      <h1 className="text-4xl font-bold text-center text-amber-700 mb-10 drop-shadow-lg">Admin Dashboard</h1>
+    <div className="min-h-screen bg-gradient-to-r from-orange-200 via-orange-50 to-orange-200 p-9">
+      <h1 className="text-4xl 2xl:text-5xl font-bold text-center text-amber-700 mb-10 drop-shadow-lg">Admin Dashboard</h1>
 
       {/* Add/Edit Form */}
-      <div className="max-w-3xl mx-auto bg-white rounded-3xl shadow-2xl p-8 mb-10">
-        <h2 className="text-2xl font-semibold text-amber-800 mb-6">
+      <div className="max-w-3xl 2xl:max-w-7xl mx-auto bg-white rounded-3xl shadow-2xl p-8 mb-10">
+        <h2 className="text-2xl 2xl:text-4xl font-semibold text-amber-800 mb-6">
           {editId ? "Edit Hall" : "Add New Hall"}
         </h2>
 
@@ -64,7 +71,7 @@ const AdminDashboard = () => {
             placeholder="Hall Name"
             value={form.name}
             onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-400"
+            className="w-full p-3 border 2xl:text-xl border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-600"
           />
           <input
             type="number"
@@ -72,17 +79,17 @@ const AdminDashboard = () => {
             placeholder="Accommodation"
             value={form.accommodation}
             onChange={handleChange}
-            className="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-400 appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+            className="w-full p-3 2xl:text-xl border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-600 appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
           />
         </div>
 
         <button
           onClick={handleSubmit}
           disabled={!isFormValid}
-          className={`mt-6 w-full text-lg font-medium text-white py-3 rounded-xl transition-all duration-300 ${
+          className={`mt-6 w-full text-lg 2xl:text-xl font-medium text-white py-3 rounded-xl transition-all duration-300 ${
             !isFormValid
-              ? "bg-amber-700 cursor-not-allowed"
-              : "bg-amber-700 hover:bg-amber-600"
+              ? "bg-amber-800 cursor-not-allowed"
+              : "bg-amber-800 hover:bg-amber-700"
           }`}
         >
           {editId ? "Update Hall" : "Add Hall"}
@@ -94,25 +101,25 @@ const AdminDashboard = () => {
         {halls.map((hall) => (
           <div
             key={hall.id}
-            className="bg-white rounded-3xl shadow-xl p-5 hover:shadow-2xl transition duration-300"
+            className="bg-white 2xl:text-xl rounded-3xl shadow-xl p-5 hover:shadow-2xl transition duration-300"
           >
             <img
               src={hall.photoUrl}
               alt={hall.name}
-              className="w-full h-48 object-cover rounded-xl mb-4"
+              className="w-full 2xl:h-80 object-cover rounded-xl mb-4"
             />
-            <h3 className="text-xl font-bold text-gray-800 mb-1">{hall.name}</h3>
-            <p className="text-gray-600 mb-4">Accommodation: {hall.accommodation}</p>
+            <h3 className="text-xl 2xl:text-2xl font-bold text-gray-800 mb-1">{hall.name}</h3>
+            <p className="text-gray-600 2xl:text-2xl  mb-4">Accommodation: {hall.accommodation}</p>
             <div className="flex gap-4">
               <button
                 onClick={() => handleEdit(hall)}
-                className="flex-1 bg-green-600 hover:bg-green-500 text-white py-2 rounded-xl transition"
+                className="flex-1 2xl:text-2xl  bg-green-600 hover:bg-green-500 text-white py-2 rounded-xl transition"
               >
                 Edit
               </button>
               <button
                 onClick={() => handleDelete(hall.id)}
-                className="flex-1 bg-red-600 hover:bg-red-500 text-white py-2 rounded-xl transition"
+                className="flex-1 2xl:text-2xl  bg-red-600 hover:bg-red-500 text-white py-2 rounded-xl transition"
               >
                 Delete
               </button>

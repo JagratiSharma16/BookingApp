@@ -17,7 +17,7 @@ const Header = () => {
         <p className="mt-4 text-lg md:text-xl drop-shadow-md">
           Book, Manage, and Organize Events Seamlessly
         </p>
-        <button className="mt-6 px-6 py-3 bg-amber-700 hover:bg-amber-600 transition-all text-white font-semibold rounded-2xl shadow-lg">
+        <button className="mt-6 px-6 py-3 2xl:text-xl bg-amber-700 hover:bg-amber-600 transition-all text-white font-semibold rounded-2xl shadow-lg">
           Book Now
         </button>
       </div>
