@@ -29,7 +29,7 @@ const AdminDashboard = () => {
     const hallData = {
       ...form,
       id: editId || Date.now(),
-      photoUrl: defaultHallImage,
+      photoUrl: defaultHallImage, // Use default image
     };
 
     if (editId !== null) {
