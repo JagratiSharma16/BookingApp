@@ -1,71 +1,115 @@
-// UpcomingSeminarsSection.jsx
+import React from "react";
+import {
+  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+  PieChart, Pie, Cell, Legend,
+} from "recharts";
 
-import React, { useState } from "react";
-import Calendar from "react-calendar";
-import 'react-calendar/dist/Calendar.css'; // Import calendar base styles
+// Sample data
+const seminars = [
+  { id: 1, date: "2025-04-05", hall: "Auditorium A", department: "CSE" },
+  { id: 2, date: "2025-04-12", hall: "Auditorium A", department: "CSE" },
+  { id: 3, date: "2025-04-15", hall: "Hall B", department: "ECE" },
+  { id: 4, date: "2025-05-01", hall: "Auditorium A", department: "IT" },
+  { id: 5, date: "2025-04-25", hall: "Hall B", department: "CSE" },
+  { id: 6, date: "2025-05-01", hall: "Hall C", department: "ME" },
+];
+
+// Aggregate Data
+const thisMonth = new Date().getMonth();
+const seminarsThisMonth = seminars.filter(s => new Date(s.date).getMonth() === thisMonth);
+
+const hallCounts = seminars.reduce((acc, s) => {
+  acc[s.hall] = (acc[s.hall] || 0) + 1;
+  return acc;
+}, {});
+
+const departmentCounts = seminars.reduce((acc, s) => {
+  acc[s.department] = (acc[s.department] || 0) + 1;
+  return acc;
+}, {});
+
+const mostBookedHall = Object.keys(hallCounts).reduce((a, b) => hallCounts[a] > hallCounts[b] ? a : b);
+const mostActiveDept = Object.keys(departmentCounts).reduce((a, b) => departmentCounts[a] > departmentCounts[b] ? a : b);
+
+// Prepare data for charts
+const lineData = Array.from({ length: 30 }, (_, i) => {
+  const day = i + 1;
+  const count = seminars.filter(s => new Date(s.date).getDate() === day).length;
+  return { day, count };
+});
+
+const pieData = Object.entries(departmentCounts).map(([dept, count]) => ({
+  name: dept,
+  value: count,
+}));
+
+const COLORS = ["#f59e0b", "#10b981", "#3b82f6", "#ef4444", "#8b5cf6"];
 
 const SeminarCalander = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-
-  // Sample seminar data
-  const upcomingSeminars = [
-    { id: 1, name: "AI in Healthcare", date: "2025-05-05", hall: "Auditorium A" },
-    { id: 2, name: "Green Energy", date: "2025-05-10", hall: "Conference Room B" },
-    { id: 3, name: "Smart Cities", date: "2025-05-15", hall: "Hall C" },
-    { id: 4, name: "Cybersecurity 101", date: "2025-05-10", hall: "Auditorium B" },
-  ];
-
-  const filteredSeminars = upcomingSeminars.filter(
-    (seminar) =>
-      new Date(seminar.date).toDateString() === selectedDate.toDateString()
-  );
-
   return (
-    <section className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 py-12">
-      <h2 className="text-3xl 2xl:text-5xl font-bold text-amber-800 text-center mb-10 drop-shadow">
-        Upcoming Seminars
+    <div className="max-w-7xl mx-auto px-6 py-16 2xl:px-12">
+      <h2 className="text-4xl 2xl:text-5xl font-bold text-amber-800 text-center mb-12 drop-shadow-lg">
+        Seminar Registration Analytics
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
-        {/* Calendar */}
-        <div className="rounded-2xl w-100 overflow-hidden shadow-lg border border-amber-300 p-4">
-          <Calendar
-            onChange={setSelectedDate}      
-            value={selectedDate}
-            tileClassName={({ date }) => {
-              const match = upcomingSeminars.find(
-                (s) => new Date(s.date).toDateString() === date.toDateString()
-              );
-              return match ? "bg-amber-100 text-amber-800 font-semibold" : null;
-            }}
-          />
+      {/* Summary Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div className="bg-white rounded-3xl p-6 shadow-lg text-center">
+          <h3 className="text-xl 2xl:text-2xl font-semibold text-gray-700 mb-2">This Month</h3>
+          <p className="text-3xl 2xl:text-4xl font-bold text-amber-700">{seminarsThisMonth.length}</p>
         </div>
-
-        {/* Seminar List */}
-        <div className="bg-white rounded-2xl p-6 shadow-xl border-t-4 border-amber-500">
-          <h3 className="text-xl 2xl:text-3xl font-semibold text-amber-700 mb-4">
-            Seminars on {selectedDate.toDateString()}:
-          </h3>
-
-          {filteredSeminars.length === 0 ? (
-            <p className="text-gray-500">No seminars scheduled.</p>
-          ) : (
-            <ul className="space-y-4">
-              {filteredSeminars.map((seminar) => (
-                <li
-                  key={seminar.id}
-                  className="bg-orange-50 rounded-xl p-4 shadow-sm hover:shadow-md transition"
-                >
-                  <p className="text-lg font-bold text-gray-800">{seminar.name}</p>
-                  <p className="text-gray-600">Location: {seminar.hall}</p>
-                  <p className="text-gray-600">Date: {seminar.date}</p>
-                </li>
-              ))}
-            </ul>
-          )}
+        <div className="bg-white rounded-3xl p-6 shadow-lg text-center">
+          <h3 className="text-xl 2xl:text-2xl font-semibold text-gray-700 mb-2">Most Booked Hall</h3>
+          <p className="text-2xl 2xl:text-3xl font-bold text-green-600">{mostBookedHall}</p>
+        </div>
+        <div className="bg-white rounded-3xl p-6 shadow-lg text-center">
+          <h3 className="text-xl 2xl:text-2xl font-semibold text-gray-700 mb-2">Most Active Dept</h3>
+          <p className="text-2xl 2xl:text-3xl font-bold text-blue-600">{mostActiveDept}</p>
         </div>
       </div>
-    </section>
+
+      {/* Charts */}
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-12">
+        {/* Line Chart */}
+        <div className="bg-white rounded-3xl p-8 shadow-xl">
+          <h4 className="text-2xl font-semibold text-gray-800 mb-6">Seminar Trends (This Month)</h4>
+          <ResponsiveContainer width="100%" height={300}>
+            <LineChart data={lineData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="day" />
+              <YAxis allowDecimals={false} />
+              <Tooltip />
+              <Line type="monotone" dataKey="count" stroke="#f59e0b" strokeWidth={3} />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+
+        {/* Pie Chart */}
+        <div className="bg-white rounded-3xl p-8 shadow-xl">
+          <h4 className="text-2xl font-semibold text-gray-800 mb-6">Department Contribution</h4>
+          <ResponsiveContainer width="100%" height={300}>
+            <PieChart>
+              <Pie
+                data={pieData}
+                dataKey="value"
+                nameKey="name"
+                cx="50%"
+                cy="50%"
+                outerRadius={100}
+                fill="#8884d8"
+                label
+              >
+                {pieData.map((_, index) => (
+                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                ))}
+              </Pie>
+              <Tooltip />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+    </div>
   );
 };
 

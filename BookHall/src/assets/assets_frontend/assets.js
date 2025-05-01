@@ -47,6 +47,9 @@ export const assets = {
     info_icon,
     profile_pic,
     arrow_icon,
+    doc1,
+    doc2,
+    doc3,
     contact_image,
     about_image,
     menu_icon,
@@ -92,7 +95,7 @@ export const specialityData = [
     },
 ]
 
-export const doctors = [
+export const halls = [
     {
         _id: 'hall1',
         name: 'Dr. SRK Auditorium',
@@ -134,7 +137,6 @@ export const doctors = [
         name: 'Dr. Christopher Lee',
         image: hall1,
         speciality: 'Seminar Hall 3',
-        
         about: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         acc: 40,
         address: {
@@ -147,7 +149,6 @@ export const doctors = [
         name: 'Dr. Jennifer Garcia',
         image: hall2,
         speciality: 'Common Hall 1',
-        
         acc: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 50,
         address: {
@@ -160,7 +161,6 @@ export const doctors = [
         name: 'Dr. Andrew Williams',
         image: hall4,
         speciality: 'Common Hall 2',
-        
         acc: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 50,
         address: {
@@ -172,7 +172,7 @@ export const doctors = [
         _id: 'hall7',
         name: 'Dr. Andrew Williams',
         image: hall1,
-    
+        speciality: 'Seminar Hall 3',
         experience: '4 Years',
         acc: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 50,
@@ -185,6 +185,7 @@ export const doctors = [
         _id: 'hall8',
         name: 'Dr. Andrew Williams',
         image: hall2,
+        speciality: 'Seminar Hall 3',
         experience: '4 Years',
         acc: 'Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies. Dr. Davis has a strong commitment to delivering comprehensive medical care, focusing on preventive medicine, early diagnosis, and effective treatment strategies.',
         fees: 50,

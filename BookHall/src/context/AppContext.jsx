@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { doctors } from "../assets/assets_frontend/assets";
+import { halls } from "../assets/assets_frontend/assets";
 import React from "react";
 
 export const AppContext = createContext();
@@ -7,7 +7,7 @@ export const AppContext = createContext();
 const AppContextProvider = ({ children }) => {
     const currency = '$' 
     const value = {
-        doctors,currency
+        halls,currency
     };
 
     return (
